@@ -1,3 +1,12 @@
+'''
+This game was created for purpose of training your brain (specifically your hipocampus (part of the brain thats responsible for short-term memory)).
+When program is started Python creates a 777x420px window from tkinter library, it welcoms user with a title and two buttons - to Start or to Exit the program.
+When guessing game is started Python generates 6 random numbers from 1-10 and showes them on screen for 1sec and the hides them. Asks user to enter them in the input box,
+and if the answer is correct, Python then shows another tkinter window showing if user has entered numbers correctly or incorrectly. 
+Code is free to use. Ofc right?! its on Github :D
+    --- Made by userinwoods --- 
+'''
+
 import tkinter as tk
 from tkinter import messagebox
 import random
