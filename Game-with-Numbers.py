@@ -7,13 +7,16 @@ Code is free to use. Ofc right?! its on Github :D
     --- Made by userinwoods --- 
 '''
 
+# Lets import necessary libs and modules
 import tkinter as tk
 from tkinter import messagebox
 import random
 import time
 
 
+# Lets create a class name MemoryGame
 class MemoryGame:
+    # Defining functions, how could we code without them right?!
     def __init__(self):
         self.master = tk.Tk()
         self.master.title("Memory Game")
@@ -21,22 +24,23 @@ class MemoryGame:
 
         self.numbers = []
 
-        # Create greeting label
+        # Creating greeting label
         self.greeting_label = tk.Label(self.master, text="Welcome to Memory Game!", font=("Arial", 25))
         self.greeting_label.pack(pady=20)
 
-        # Create sub label
+        # Creating sub label
         self.greeting_label = tk.Label(self.master, text=" --- Made by userinwoods :) --- ", font=("Arial", 12))
         self.greeting_label.pack(pady=5)
 
-        # Create start button
+        # Creating start button
         self.start_button = tk.Button(self.master, text="Start", font=("Arial", 16), command=self.start_game)
         self.start_button.pack(pady=10)
 
-        # Create exit button
+        # Creating exit button
         self.exit_button = tk.Button(self.master, text="Exit", font=("Arial", 16), command=self.master.quit)
         self.exit_button.pack(pady=10)
-
+        
+    # More functions incoming
     def create_widgets(self):
         self.numbers_label = tk.Label(self.master, text="", font=("Arial", 32))
         self.numbers_label.pack(pady=10)
@@ -47,19 +51,24 @@ class MemoryGame:
         self.check_button = tk.Button(self.master, text="Check", font=("Arial", 16), command=self.check_answer)
         self.check_button.pack(pady=10)
 
-        # Hide exit button until game is started
+        # Hide exit button until the game is started
         self.exit_button.pack_forget()
 
+    # functions, functions and moar functions
     def create_numbers(self):
+        # Generating six random numbers between 1-9
         self.numbers = random.sample(range(1, 10), 6)
         self.numbers_label.config(text=" ".join(map(str, self.numbers)))
+        # This code will hide the numbers after 3sec
         self.master.after(3000, self.hide_numbers)
 
     def hide_numbers(self):
+        # This code will hide the numbers
         self.numbers_label.config(text="")
         self.answer_entry.delete(0, tk.END)
 
     def check_answer(self):
+        # This checks if the answer from user is correct
         answer = self.answer_entry.get()
         if len(answer) != 6:
             messagebox.showerror("Error", "Please enter 6 numbers.")
@@ -91,6 +100,7 @@ class MemoryGame:
         self.start_button.pack_forget()
 
     def run(self):
+        # Runs the game in loop thats all it does... loooooooooop! :)
         self.master.mainloop()
 
 
